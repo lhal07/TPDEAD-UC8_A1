@@ -35,4 +35,5 @@ public class JogadorController : MonoBehaviour
             transform.Translate(translationX,translationY,0);
         }
     }
+
 }
