@@ -35,6 +35,7 @@ public class MeteorController : MonoBehaviour
     {
         destroyed = true;
         m_rb.velocity = new Vector2(0.0f, 0.0f);
+        m_player.AddScore(m_points);
         m_anim.SetTrigger("explode");
         Destroy(this.gameObject,0.5f);
     }

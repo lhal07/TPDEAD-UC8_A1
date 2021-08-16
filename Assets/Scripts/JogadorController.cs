@@ -10,6 +10,7 @@ public class JogadorController : MonoBehaviour
 
     public int Life;
     public float Speed;
+    [HideInInspector] public int Score = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -36,4 +37,8 @@ public class JogadorController : MonoBehaviour
         }
     }
 
+    public void AddScore(int points)
+    {
+        this.Score += points;
+    }
 }
