@@ -8,7 +8,7 @@ public class MeteorController : MonoBehaviour
     private Animator m_anim;
     private Camera m_camera;
     public JogadorController m_player;
-    public float m_Damage = 1.0f;
+    public int m_Damage = 1;
     public int m_points = 5;
     private bool m_Destroyed = false;
     private float m_ScreenBottomLimit;
@@ -32,6 +32,12 @@ public class MeteorController : MonoBehaviour
         }
     } 
 
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.tag == "Jogador")
+        Hit();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -47,6 +53,7 @@ public class MeteorController : MonoBehaviour
     void Hit()
     {
         m_rb.velocity = new Vector2(0.0f, 0.0f);
+        m_player.DecrementLife(m_Damage);
         m_player.AddScore(m_points);
         m_anim.SetTrigger("explode");
         DestroyMeteor();

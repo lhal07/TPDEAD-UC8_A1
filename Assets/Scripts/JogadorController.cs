@@ -41,4 +41,9 @@ public class JogadorController : MonoBehaviour
     {
         this.m_Score += points;
     }
+
+    public void DecrementLife(int damage)
+    {
+        m_Life -= damage;
+    }
 }
