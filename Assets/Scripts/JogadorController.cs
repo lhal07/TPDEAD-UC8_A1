@@ -5,18 +5,18 @@ using UnityEngine;
 public class JogadorController : MonoBehaviour
 {
 
-    private Animator anim;
-    private Rigidbody2D rb2d;
+    private Animator m_Anim;
+    private Rigidbody2D m_Rb2d;
 
-    public int Life;
-    public float Speed;
-    [HideInInspector] public int Score = 0;
+    public int m_Life;
+    public float m_Speed;
+    [HideInInspector] public int m_Score = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponent<Animator>();
-        rb2d = GetComponent<Rigidbody2D>();
+        m_Anim = GetComponent<Animator>();
+        m_Rb2d = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -28,7 +28,7 @@ public class JogadorController : MonoBehaviour
     void FixedUpdate()
     {
         float translationY = 0;
-        float translationX = Speed;
+        float translationX = m_Speed;
         if (Input.GetKey("a")) {
             transform.Translate((-1*translationX),translationY,0);
         }
@@ -39,6 +39,6 @@ public class JogadorController : MonoBehaviour
 
     public void AddScore(int points)
     {
-        this.Score += points;
+        this.m_Score += points;
     }
 }
