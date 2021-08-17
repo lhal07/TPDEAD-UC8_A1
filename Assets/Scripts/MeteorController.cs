@@ -4,24 +4,24 @@ using UnityEngine;
 
 public class MeteorController : MonoBehaviour
 {
-    private Rigidbody2D m_rb;
-    private Animator m_anim;
-    private Camera m_camera;
-    public JogadorController m_player;
+    private Rigidbody2D m_Rb2d;
+    private Animator m_Anim;
+    private Camera m_Camera;
+    public JogadorController m_Player;
     public int m_Damage = 1;
-    public int m_points = 5;
+    public int m_Points = 5;
     private bool m_Destroyed = false;
     private float m_ScreenBottomLimit;
 
     // Start is called before the first frame update
     void Start()
     {
-        m_rb = gameObject.GetComponent<Rigidbody2D>();
-        m_anim = gameObject.GetComponent<Animator>();
-        m_player = (JogadorController)FindObjectOfType(typeof(JogadorController));
-        m_rb.velocity = new Vector2(0.0f, -1.0f);
-        m_camera = (Camera)FindObjectOfType(typeof(Camera));
-        m_ScreenBottomLimit = m_camera.transform.position.y - (m_camera.rect.height * m_camera.orthographicSize);
+        m_Rb2d = gameObject.GetComponent<Rigidbody2D>();
+        m_Anim = gameObject.GetComponent<Animator>();
+        m_Player = (JogadorController)FindObjectOfType(typeof(JogadorController));
+        m_Rb2d.velocity = new Vector2(0.0f, -1.0f);
+        m_Camera = (Camera)FindObjectOfType(typeof(Camera));
+        m_ScreenBottomLimit = m_Camera.transform.position.y - (m_Camera.rect.height * m_Camera.orthographicSize);
     }
 
     void FixedUpdate()
@@ -34,8 +34,12 @@ public class MeteorController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.tag == "Jogador")
-        Hit();
+        if(!m_Destroyed) {
+            if (col.CompareTag("Jogador")) {
+                m_Player.DecrementLife(m_Damage);
+                Explode();
+            }
+        }
     }
 
     // Update is called once per frame
@@ -44,18 +48,21 @@ public class MeteorController : MonoBehaviour
 
     }
 
-    void DestroyMeteor()
+    public void DestroyMeteor(float delay=0.0f)
     {
         m_Destroyed = true;
-        Destroy(this.gameObject,0.5f);
+        Destroy(this.gameObject,delay);
     }
 
-    void Hit()
+    public void GotHit() {
+        m_Player.AddScore(m_Points);
+        Explode();
+    }
+
+    public void Explode()
     {
-        m_rb.velocity = new Vector2(0.0f, 0.0f);
-        m_player.DecrementLife(m_Damage);
-        m_player.AddScore(m_points);
-        m_anim.SetTrigger("explode");
-        DestroyMeteor();
+        m_Rb2d.velocity = new Vector2(0.0f, 0.0f);
+        m_Anim.SetTrigger("explode");
+        DestroyMeteor(0.5f);
     }
 }

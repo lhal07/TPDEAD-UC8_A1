@@ -7,9 +7,13 @@ public class JogadorController : MonoBehaviour
 
     private Animator m_Anim;
     private Rigidbody2D m_Rb2d;
+    public GameObject m_Projectile;
 
     public int m_Life;
     public float m_Speed;
+    private float m_Timer = 0.0f;
+    public float m_ShotInterval = 0.5f;
+
     [HideInInspector] public int m_Score = 0;
 
     // Start is called before the first frame update
@@ -22,18 +26,37 @@ public class JogadorController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        m_Timer += Time.deltaTime;
     }
 
     void FixedUpdate()
     {
-        float translationY = 0;
-        float translationX = m_Speed;
-        if (Input.GetKey("a")) {
-            transform.Translate((-1*translationX),translationY,0);
+        if (Input.GetKey(KeyCode.A)) {
+            MoveLeft();
         }
-        if (Input.GetKey("d")) {
-            transform.Translate(translationX,translationY,0);
+        if (Input.GetKey(KeyCode.D)) {
+            MoveRight();
+        }
+        if (Input.GetKey(KeyCode.Space)) {
+            Shoot();
+        }
+    }
+
+    void MoveLeft()
+    {
+      transform.Translate((-1*m_Speed),0,0);
+    }
+
+    void MoveRight()
+    {
+      transform.Translate((m_Speed),0,0);
+    }
+
+    void Shoot()
+    {
+        if (m_Timer > m_ShotInterval) {
+            m_Timer = 0.0f;
+            Instantiate(m_Projectile,this.transform.GetChild(0).position, Quaternion.identity);
         }
     }
 

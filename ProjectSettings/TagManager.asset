@@ -8,6 +8,7 @@ TagManager:
   - Jogador
   - pontuacao
   - Meteor
+  - Projectile
   layers:
   - Default
   - TransparentFX
