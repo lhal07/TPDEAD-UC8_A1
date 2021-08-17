@@ -70,11 +70,18 @@ public class JogadorController : MonoBehaviour
     public void DecrementLife(int damage)
     {
         m_Life -= damage;
+        TestDefeatCondition();
     }
 
     void TestVictoryCondition() {
         if (this.m_Score >= m_VictoryScore) {
             SceneManager.LoadScene("Scenes/Vitoria");
+        }
+    }
+
+    void TestDefeatCondition() {
+        if (this.m_Life <= 0) {
+            SceneManager.LoadScene("Scenes/Derrota");
         }
     }
 }
