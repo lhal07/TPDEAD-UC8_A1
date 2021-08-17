@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class JogadorController : MonoBehaviour
 {
@@ -13,8 +14,8 @@ public class JogadorController : MonoBehaviour
     public float m_Speed = 0.2f;
     private float m_Timer = 0.0f;
     public float m_ShotInterval = 0.5f;
-
     [HideInInspector] public int m_Score = 0;
+    public int m_VictoryScore = 30;
 
     // Start is called before the first frame update
     void Start()
@@ -63,10 +64,17 @@ public class JogadorController : MonoBehaviour
     public void AddScore(int points)
     {
         this.m_Score += points;
+        TestVictoryCondition();
     }
 
     public void DecrementLife(int damage)
     {
         m_Life -= damage;
+    }
+
+    void TestVictoryCondition() {
+        if (this.m_Score >= m_VictoryScore) {
+            SceneManager.LoadScene("Scenes/Vitoria");
+        }
     }
 }
