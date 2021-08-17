@@ -9,8 +9,8 @@ public class JogadorController : MonoBehaviour
     private Rigidbody2D m_Rb2d;
     public GameObject m_Projectile;
 
-    public int m_Life;
-    public float m_Speed;
+    public int m_Life = 5;
+    public float m_Speed = 0.2f;
     private float m_Timer = 0.0f;
     public float m_ShotInterval = 0.5f;
 
