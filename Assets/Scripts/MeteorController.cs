@@ -6,8 +6,9 @@ public class MeteorController : MonoBehaviour
 {
     private Rigidbody2D m_Rb2d;
     private Animator m_Anim;
-    private Camera m_Camera;
     public JogadorController m_Player;
+    private float m_Timer = 0.0f;
+    private float m_Lifespan = 5f;
     public int m_Damage = 1;
     public int m_Points = 5;
     private bool m_Destroyed = false;
@@ -20,17 +21,7 @@ public class MeteorController : MonoBehaviour
         m_Anim = gameObject.GetComponent<Animator>();
         m_Player = (JogadorController)FindObjectOfType(typeof(JogadorController));
         m_Rb2d.velocity = new Vector2(0.0f, -1.0f);
-        m_Camera = (Camera)FindObjectOfType(typeof(Camera));
-        m_ScreenBottomLimit = m_Camera.transform.position.y - (m_Camera.rect.height * m_Camera.orthographicSize);
     }
-
-    void FixedUpdate()
-    {
-        float meteorPosY = this.transform.position.y;
-        if ((meteorPosY <= m_ScreenBottomLimit) && !m_Destroyed) {
-            DestroyMeteor();
-        }
-    } 
 
     void OnTriggerEnter2D(Collider2D col)
     {
@@ -43,7 +34,10 @@ public class MeteorController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        m_Timer += Time.deltaTime;
+        if (m_Timer > m_Lifespan) {
+            DestroyMeteor();
+        }
     }
 
     public void DestroyMeteor(float delay=0.0f)
