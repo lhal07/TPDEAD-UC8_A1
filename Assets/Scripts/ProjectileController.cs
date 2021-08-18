@@ -9,12 +9,13 @@ public class ProjectileController : MonoBehaviour
     private Camera m_Camera;
     private float m_ScreenTopLimit;
     private bool m_Destroyed = false;
+    public float m_Speed = 100.0f;
     
     // Start is called before the first frame update
     void Start()
     {
         m_Rb2d = gameObject.GetComponent<Rigidbody2D>();
-        m_Rb2d.velocity = new Vector2(0.0f, 1.0f);
+        m_Rb2d.AddForce(new Vector2(0.0f, m_Speed));
         m_Anim = gameObject.GetComponent<Animator>();
         m_Camera = (Camera)FindObjectOfType(typeof(Camera));
         m_ScreenTopLimit = m_Camera.transform.position.y + (m_Camera.rect.height * m_Camera.orthographicSize);

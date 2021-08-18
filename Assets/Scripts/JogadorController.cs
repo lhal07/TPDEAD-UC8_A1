@@ -34,35 +34,20 @@ public class JogadorController : MonoBehaviour
     void Update()
     {
         m_Timer += Time.deltaTime;
+        Move();
     }
 
     void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.A)) {
-            MoveLeft();
-        }
-        if (Input.GetKey(KeyCode.D)) {
-            MoveRight();
-        }
         if (Input.GetKey(KeyCode.Space)) {
             Shoot();
         }
     }
 
-    void MoveLeft()
+    void Move()
     {
-        float playerPosX = this.transform.position.x;
-        if ((playerPosX >= m_ScreenLeftLimit)) {
-            transform.Translate((-1*m_Speed),0,0);
-        }
-    }
-
-    void MoveRight()
-    {
-        float playerPosX = this.transform.position.x;
-        if ((playerPosX <= m_ScreenRightLimit)) {
-            transform.Translate((m_Speed),0,0);
-        }
+        float direction = Input.GetAxis("Horizontal");
+        m_Rb2d.velocity = new Vector2(direction * m_Speed, m_Rb2d.velocity.y);
     }
 
     void Shoot()
