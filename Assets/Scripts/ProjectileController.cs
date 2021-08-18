@@ -8,6 +8,7 @@ public class ProjectileController : MonoBehaviour
     private Animator m_Anim;
     private Camera m_Camera;
     private float m_ScreenTopLimit;
+    private bool m_Destroyed = false;
     
     // Start is called before the first frame update
     void Start()
@@ -23,7 +24,7 @@ public class ProjectileController : MonoBehaviour
     {
         float projectilePosY = this.transform.position.y;
         if ((projectilePosY >= m_ScreenTopLimit)) {
-            Destroy(this.gameObject);
+            DestroyProjectile();
         }
     }
 
@@ -35,15 +36,28 @@ public class ProjectileController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("Meteor")) {
-            col.GetComponent<MeteorController>().GotHit();
-            Hit();
+            MeteorController meteor = col.GetComponent<MeteorController>();
+            if (meteor && !(meteor.IsDestroyed() || m_Destroyed)) {
+                meteor.GotHit();
+                Hit();
+            }
         }
     }
 
     void Hit()
     {
-        m_Rb2d.velocity = new Vector2(0.0f, 0.0f);
-        m_Anim.SetTrigger("explode");
-        Destroy(this.gameObject,0.5f);
+        if(!m_Destroyed && m_Rb2d && m_Anim) {
+            m_Rb2d.velocity = new Vector2(0.0f, 0.0f);
+            m_Anim.SetTrigger("explode");
+            DestroyProjectile();
+        }
     }
+
+    void DestroyProjectile(float delay=0.0f) {
+        if (!m_Destroyed) {
+            m_Destroyed = true;
+            Destroy(this.gameObject,delay);
+        }
+    }
+
 }

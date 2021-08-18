@@ -34,11 +34,9 @@ public class MeteorController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if(!m_Destroyed) {
-            if (col.CompareTag("Jogador")) {
-                m_Player.DecrementLife(m_Damage);
-                Explode();
-            }
+        if (col.CompareTag("Jogador")) {
+            m_Player.DecrementLife(m_Damage);
+            Explode();
         }
     }
 
@@ -50,19 +48,30 @@ public class MeteorController : MonoBehaviour
 
     public void DestroyMeteor(float delay=0.0f)
     {
-        m_Destroyed = true;
-        Destroy(this.gameObject,delay);
+        if(!m_Destroyed) {
+            m_Destroyed = true;
+            Destroy(this.gameObject,delay);
+        }
     }
 
     public void GotHit() {
-        m_Player.AddScore(m_Points);
-        Explode();
+        if(!m_Destroyed) {
+            Explode();
+            m_Player.AddScore(m_Points);
+        }
     }
 
     public void Explode()
     {
-        m_Rb2d.velocity = new Vector2(0.0f, 0.0f);
-        m_Anim.SetTrigger("explode");
-        DestroyMeteor(0.5f);
+        if(!m_Destroyed && m_Rb2d && m_Anim) {
+            m_Rb2d.velocity = new Vector2(0.0f, 0.0f);
+            m_Anim.SetTrigger("explode");
+            DestroyMeteor(0.5f);
+        }
+    }
+
+    public bool IsDestroyed()
+    {
+        return m_Destroyed;
     }
 }

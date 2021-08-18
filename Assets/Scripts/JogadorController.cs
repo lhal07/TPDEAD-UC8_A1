@@ -15,7 +15,7 @@ public class JogadorController : MonoBehaviour
     public float m_Speed = 0.2f;
     private float m_Timer = 0.0f;
     public float m_ShotInterval = 0.5f;
-    [HideInInspector] public int m_Score = 0;
+    public int m_Score = 0;
     public int m_VictoryScore = 30;
     private float m_ScreenRightLimit;
     private float m_ScreenLeftLimit;
