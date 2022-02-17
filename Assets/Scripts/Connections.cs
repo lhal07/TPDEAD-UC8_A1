@@ -30,7 +30,7 @@ public class Connections : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         Debug.Log("Connected to Room");
-        PhotonNetwork.LoadLevel("Fase01");
+        PhotonNetwork.LoadLevel("Arena");
     }
 
     public override void OnJoinRandomFailed(short returnCode, string message)
