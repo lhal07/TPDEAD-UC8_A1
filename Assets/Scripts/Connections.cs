@@ -13,7 +13,7 @@ public class Connections : MonoBehaviourPunCallbacks
         if (!PhotonNetwork.IsConnected) {
             PhotonNetwork.ConnectUsingSettings();
         }
-        else {
+        if (PhotonNetwork.IsConnected) {
             m_TryingToConnectToGame = true;
             PhotonNetwork.JoinRandomRoom();
         }
@@ -43,7 +43,7 @@ public class Connections : MonoBehaviourPunCallbacks
     {
         Debug.Log("Could not join room. Creating new room...");
         RoomOptions ro = new RoomOptions();
-        ro.MaxPlayers = 4;
+        ro.MaxPlayers = 2;
         PhotonNetwork.CreateRoom("uc8a1",ro);
     }
 
