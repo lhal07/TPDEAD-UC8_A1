@@ -9,12 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Connection.unity
     guid: 9fc3cc0f2250e45fab7ca0b20f15307b
   - enabled: 1
-    path: Assets/Scenes/Fase01.unity
+    path: Assets/Scenes/Arena.unity
     guid: 05ac7ffdabad042448f8c8332d2932a7
-  - enabled: 1
-    path: Assets/Scenes/Derrota.unity
-    guid: 71980480e3e8a6e4cb6f19155d2b35a3
-  - enabled: 1
-    path: Assets/Scenes/Vitoria.unity
-    guid: d654578e43415bf4c90c4888f5dc5ed9
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}

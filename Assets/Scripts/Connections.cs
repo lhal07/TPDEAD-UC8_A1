@@ -6,20 +6,25 @@ using Photon.Realtime;
 
 public class Connections : MonoBehaviourPunCallbacks
 {
+
+    bool m_TryingToConnectToGame = false;
     public void ConnectToGame()
     {
         if (!PhotonNetwork.IsConnected) {
             PhotonNetwork.ConnectUsingSettings();
         }
         else {
+            m_TryingToConnectToGame = true;
             PhotonNetwork.JoinRandomRoom();
         }
     }
 
     public override void OnConnectedToMaster()
     {
-        Debug.Log("Connecting to Master Server...");
-        PhotonNetwork.JoinRandomRoom();
+        if (m_TryingToConnectToGame) {
+            Debug.Log("Connecting to Master Server...");
+            PhotonNetwork.JoinRandomRoom();
+        }
     }
 
     public override void OnDisconnected(Photon.Realtime.DisconnectCause cause)
@@ -30,6 +35,7 @@ public class Connections : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         Debug.Log("Connected to Room");
+        m_TryingToConnectToGame = false;
         PhotonNetwork.LoadLevel("Arena");
     }
 
@@ -39,5 +45,11 @@ public class Connections : MonoBehaviourPunCallbacks
         RoomOptions ro = new RoomOptions();
         ro.MaxPlayers = 4;
         PhotonNetwork.CreateRoom("uc8a1",ro);
+    }
+
+    public void DisconnectFromGame()
+    {
+        PhotonNetwork.LeaveRoom(true);
+        PhotonNetwork.LoadLevel(0);
     }
 }
