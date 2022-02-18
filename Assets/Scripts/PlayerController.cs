@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class JogadorController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
 
     private Rigidbody2D m_Rb2d;
