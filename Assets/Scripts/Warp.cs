@@ -23,7 +23,7 @@ public class Warp : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Jogador") && !other.isTrigger) {
+        if (other.CompareTag("Player") && !other.isTrigger) {
             cam.m_MinPosition += cameraChange;
             cam.m_MaxPosition += cameraChange;
             other.transform.position += playerChange;

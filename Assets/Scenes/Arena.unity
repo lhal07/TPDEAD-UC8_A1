@@ -166,7 +166,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 5.702178, y: 0.07275915}
+  m_Offset: {x: 5.8572927, y: 0.06679177}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -177,7 +177,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.13975, y: 4.006518}
+  m_Size: {x: 0.14586544, y: 4.3508534}
   m_EdgeRadius: 0
 --- !u!114 &219196733
 MonoBehaviour:
@@ -238,7 +238,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.0654097, y: 2.1584232}
+  m_Offset: {x: 2.061138, y: 2.317346}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -249,7 +249,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7.1163635, y: 0.1898961}
+  m_Size: {x: 7.415981, y: 0.14416504}
   m_EdgeRadius: 0
 --- !u!114 &259871825
 MonoBehaviour:
@@ -636,7 +636,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.5879577, y: 0.07275921}
+  m_Offset: {x: -1.7190001, y: 0.061846256}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -647,7 +647,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.16423249, y: 4.006518}
+  m_Size: {x: 0.1518941, y: 4.354002}
   m_EdgeRadius: 0
 --- !u!114 &1246924619
 MonoBehaviour:
@@ -708,7 +708,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.0654097, y: -2.0179875}
+  m_Offset: {x: 2.0728319, y: -2.181979}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -719,7 +719,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7.1163635, y: 0.1758045}
+  m_Size: {x: 7.418671, y: 0.13086653}
   m_EdgeRadius: 0
 --- !u!114 &1378009714
 MonoBehaviour:

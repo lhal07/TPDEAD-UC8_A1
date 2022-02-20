@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 1094246248822446007}
   - component: {fileID: 3893878228954154779}
   - component: {fileID: -4428110864524925164}
+  - component: {fileID: 8949312575315762056}
   m_Layer: 0
   m_Name: Jewel_Yellow
-  m_TagString: Untagged
+  m_TagString: Gem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,3 +95,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d653d8d4a0530030093447014fc152bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_LifeTimeSec: 5
+--- !u!58 &8949312575315762056
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3534569599130689540}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.002233982, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.46264806

@@ -7,6 +7,51 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 526384388229553812, guid: d6347b70a63e51660992a489493edb7d,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1131239786432876786, guid: d6347b70a63e51660992a489493edb7d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 150.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5734061245328391857, guid: d6347b70a63e51660992a489493edb7d,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5734061245328391857, guid: d6347b70a63e51660992a489493edb7d,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5734061245328391857, guid: d6347b70a63e51660992a489493edb7d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 24.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5734061245328391857, guid: d6347b70a63e51660992a489493edb7d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6974095812533115374, guid: d6347b70a63e51660992a489493edb7d,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Player 2 :'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6974095812533115374, guid: d6347b70a63e51660992a489493edb7d,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7279025443096382635, guid: d6347b70a63e51660992a489493edb7d,
+        type: 3}
+      propertyPath: m_SynchronizeAngularVelocity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8644451229583717060, guid: d6347b70a63e51660992a489493edb7d,
         type: 3}
       propertyPath: sceneViewId

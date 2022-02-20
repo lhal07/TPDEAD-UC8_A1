@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
 
@@ -9,6 +10,7 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D m_Rb2d;
     private PhotonView m_PhotonView;
+    private Text m_TextScore;
 
     public float m_ThrustForce = 0.5f;
     public float m_Torque = 1.2f;
@@ -19,6 +21,7 @@ public class PlayerController : MonoBehaviour
     {
         m_Rb2d = GetComponent<Rigidbody2D>();
         m_PhotonView = GetComponent<PhotonView>();
+        m_TextScore = this.gameObject.transform.GetChild(0).GetChild(2).GetComponent<Text>();
     }
 
     // Update is called once per frame
@@ -42,5 +45,16 @@ public class PlayerController : MonoBehaviour
     public void AddScore(int points)
     {
         this.m_Score += points;
+        this.m_TextScore.text = this.m_Score.ToString();
     }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.CompareTag("Gem")) {
+            AddScore(1);
+            Destroy(col.gameObject);
+        }
+    }
+
+
 }

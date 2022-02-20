@@ -5,10 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Projetil
-  - Jogador
-  - pontuacao
-  - Meteor
-  - Projectile
+  - Gem
   layers:
   - Default
   - TransparentFX
