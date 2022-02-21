@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviourPunCallbacks {
 
     public GameObject player1Prefab;
     public GameObject player2Prefab;
+    public Transform player1Start;
+    public Transform player2Start;
 
     private void Start() {
         if ((player1Prefab == null) || (player2Prefab == null)) {
@@ -16,9 +18,9 @@ public class GameManager : MonoBehaviourPunCallbacks {
         }
         Debug.Log("Instantiate Player");
         if(PhotonNetwork.CurrentRoom.PlayerCount == 1) {
-            PhotonNetwork.Instantiate(player1Prefab.name, new Vector3(0, -1, 0), Quaternion.identity);
+            PhotonNetwork.Instantiate(player1Prefab.name, player1Start.position, Quaternion.identity);
         } else if(PhotonNetwork.CurrentRoom.PlayerCount == 2) {
-            PhotonNetwork.Instantiate(player2Prefab.name, new Vector3(0, -1, 0), Quaternion.identity);
+            PhotonNetwork.Instantiate(player2Prefab.name, player2Start.position, Quaternion.identity);
         }
     }
 

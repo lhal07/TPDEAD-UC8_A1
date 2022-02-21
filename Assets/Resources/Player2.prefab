@@ -50,7 +50,7 @@ PrefabInstance:
     - target: {fileID: 7279025443096382635, guid: d6347b70a63e51660992a489493edb7d,
         type: 3}
       propertyPath: m_SynchronizeAngularVelocity
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8644451229583717060, guid: d6347b70a63e51660992a489493edb7d,
         type: 3}

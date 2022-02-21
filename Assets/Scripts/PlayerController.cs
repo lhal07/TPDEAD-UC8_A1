@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable
 {
 
     private Rigidbody2D m_Rb2d;
@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        this.m_TextScore.text = this.m_Score.ToString();
+
         if(m_PhotonView.IsMine) {
             Move();
         }
@@ -42,6 +44,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    [PunRPC]
     public void AddScore(int points)
     {
         this.m_Score += points;
@@ -52,9 +55,20 @@ public class PlayerController : MonoBehaviour
     {
         if (col.CompareTag("Gem")) {
             AddScore(1);
+            photonView.RPC("AddScore", RpcTarget.All);
             Destroy(col.gameObject);
         }
     }
 
-
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if(stream.IsWriting)
+        {
+            stream.SendNext(m_Score);
+        }
+        else
+        {
+            m_Score = (int)stream.ReceiveNext();
+        }
+    }
 }
