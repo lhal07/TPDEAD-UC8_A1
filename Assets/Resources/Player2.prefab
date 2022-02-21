@@ -17,6 +17,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 150.3
       objectReference: {fileID: 0}
+    - target: {fileID: 5344721387063556224, guid: d6347b70a63e51660992a489493edb7d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -40.7
+      objectReference: {fileID: 0}
     - target: {fileID: 5734061245328391857, guid: d6347b70a63e51660992a489493edb7d,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -52,6 +57,12 @@ PrefabInstance:
       propertyPath: m_SynchronizeAngularVelocity
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7434469635910087139, guid: d6347b70a63e51660992a489493edb7d,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 67bef7599cc671c1baee8095351b4279,
+        type: 3}
     - target: {fileID: 8644451229583717060, guid: d6347b70a63e51660992a489493edb7d,
         type: 3}
       propertyPath: sceneViewId
